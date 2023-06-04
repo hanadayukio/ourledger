@@ -1,0 +1,2 @@
+class UsersEquipment < ApplicationRecord
+end
