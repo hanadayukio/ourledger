@@ -3,7 +3,6 @@
 
 ## サイト概要
 ### サイトテーマ
-オリジナルの題材  
 仕事で機器の一覧をデータベース管理ができるサイト
 
 ### テーマを選んだ理由
@@ -19,16 +18,12 @@
 
 ### 主な利用シーン
 - 社内で建物やフロア毎などの機器リストDB管理がしたい
-- 機器のリストを作成・表示・削除・編集を可能とする
-- ユーザー間で変更した方が良い内容をコメントを共有できる
-- csvデータを使用インポートを行い一括でDB管理
-- 他社間とのやりとりに伴いcsvのエクスポート
-- 表示しかできないユーザーと作成・編集・削除・表示ができるユーザーを分けるために編集権限を持たせたい
+- csvデータを使用してインポート一括でDB管理へ反映したい
 - データベース管理することで変更履歴の取得が可能や明瞭化をしたい
-- 複数のユーザーの同時変更を可能
+
 
 ## 実装機能チェックシート
-URL ： https://docs.google.com/spreadsheets/d/1Go1ub7Y-34SoLr7OyKVTsvy9MqDYw0QCZSznrqKK2V0/edit?usp=sharing
+URL：https://docs.google.com/spreadsheets/d/1Go1ub7Y-34SoLr7OyKVTsvy9MqDYw0QCZSznrqKK2V0/edit?usp=sharing
 
 ## 設計書
 
@@ -41,4 +36,9 @@ URL ： https://docs.google.com/spreadsheets/d/1Go1ub7Y-34SoLr7OyKVTsvy9MqDYw0QC
 - IDE：Cloud9
 
 ## 使用素材
+使用検討中です
 
+## gemの使用
+- devise
+- kaminari
+- image_processing

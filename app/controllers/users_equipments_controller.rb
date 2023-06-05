@@ -1,0 +1,2 @@
+class UsersEquipmentsController < ApplicationController
+end
