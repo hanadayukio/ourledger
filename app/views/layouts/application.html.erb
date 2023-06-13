@@ -10,9 +10,40 @@
   
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <header class="shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <nav class="container">
+          <a class="navbar-brand p-3" href="/">Our ledger</a>
+          <button class="navbar-toggler" type="button" date-toggle="collapse" date-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item pr-4">
+              <button type="button" class="btn btn-light btn-sm"><%= link_to"マイページ", top_page_path, class: 'nav-link text-dark'  %></button>
+            </li>
+            <li class="nav-item pr-4">
+              <button type="button" class="btn btn-light btn-sm"><%= link_to"管理者ログイン", new_admin_session_path, class: 'nav-link text-dark'  %></button>
+            </li>
+            <li class="nav-item pr-4">
+              <button type="button" class="btn btn-light btn-sm"><%= link_to"管理者ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark'  %></button>
+            </li>
+            <li class="nav-item pr-4">
+              <button type="button" class="btn btn-light btn-sm"><%= link_to"台帳一覧", admin_registers_path, class: 'nav-link text-dark'  %></button>
+            </li>
+            <li class="nav-item pr-4">
+              <button type="button" class="btn btn-light btn-sm"><%= link_to"ユーザーログイン", new_user_session_path, class: 'nav-link text-dark'  %></button>
+            </li>
+            <li class="nav-item pr-4">
+              <button type="button" class="btn btn-light btn-sm"><%= link_to"ユーザーログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark'  %></button>
+            </li>
+            </ul>
+          </div>
+        </nav>
+      </nav>
+    </header>
 
-  <body>
+  <body class="d-flex flex-column vh-100">
     <%= yield %>
   </body>
 </html>

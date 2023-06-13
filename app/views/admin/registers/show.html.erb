@@ -1,0 +1,49 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-12 px-5 px-sm-0 mx-auto">
+      <h3 class="border-box py-5">台帳詳細</h3>
+      <div class="col-lg-12 px-5 px-sm-0 mx-auto">
+        <div class="row">
+          <div class="col-lg-3">
+            <p for="id">管理番号</p>
+          </div>
+          <div class="col-lg-6">
+            <%= @register.reference_number %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+            <p for="id">名称</p>
+          </div>
+          <div class="col-lg-6">
+            <%= @register.name %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+            <p for="id">台帳説明</p>
+          </div>
+          <div class="col-lg-6">
+            <%= @register.detail %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+            <p for="id">削除ステータス</p>
+          </div>
+          <div class="col-lg-6">
+            <% if @register.is_deleted %>
+              <p class="text-secondary">削除中</p>
+            <% else %>
+              <p class="text-success">登録中</p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <%= link_to "編集する", edit_admin_register_path(@register[:id]), class: 'btn btn-primary' %>
+  </div>
+</div>
