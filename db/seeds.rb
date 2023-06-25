@@ -11,3 +11,12 @@ Admin.create!(
   email: "hanada@gmail.com",
   password: "yukio1",
   )
+  
+User.create!(
+  email: "hanada@gmail.com",
+  password: "yukio1",
+  code: "111111",
+  name: "花田有希央",
+  name_kana: "ハナダユキオ",
+  )
+  

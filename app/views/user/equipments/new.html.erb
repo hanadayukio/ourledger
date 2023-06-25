@@ -4,11 +4,11 @@
     <div class="col-sm-12 col-md-8 col-lg-12 px-5 px-sm-0 mx-auto">
       <h3 class="border-box py-5">機器新規登録</h3>
       <div class="col-lg-12 px-5 px-sm-0 mx-auto">
-      <%= form_with model: @equipment, url: equopments_path, method: :create, do |f| %>
+      <%= form_with model: @equipment, url: user_register_equipments_path(@registerId), method: :post do |f| %>
         <div class="form-group row">
-          <%= f.label :refernce_number, "管理番号", class: "col-sm-3 col-form-label"  %>
+          <%= f.label :reference_number, "管理番号", class: "col-sm-3 col-form-label"  %>
           <div class="col-sm-6">
-            <%= f.text_field :refernce_number%>
+            <%= f.text_field :reference_number%>
           </div>
         </div>
         <div class="form-group row">
@@ -24,25 +24,41 @@
           </div>
         </div>
         <div class="form-group row">
-          <%= f.label :location, "名称", class: "col-sm-3 col-form-label" %>
+          <%= f.label :model, "型番", class: "col-sm-3 col-form-label" %>
+          <div class="col-sm-6">
+            <%= f.text_field :model %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= f.label :location, "設置箇所", class: "col-sm-3 col-form-label" %>
           <div class="col-sm-6">
             <%= f.text_field :location %>
           </div>
         </div>
         <div class="form-group row">
-          <%= f.label :date, "名称", class: "col-sm-3 col-form-label" %>
+          <%= f.label :date, "製造年月日", class: "col-sm-3 col-form-label" %>
           <div class="col-sm-6">
             <%= f.text_field :date %>
           </div>
         </div>
         <div class="form-group row">
-          <%= f.label :notes, "名称", class: "col-sm-3 col-form-label" %>
+          <%= f.label :notes, "備考", class: "col-sm-3 col-form-label" %>
           <div class="col-sm-6">
             <%= f.text_area :notes %>
           </div>
         </div>
         <div class="form-group row">
-          <div class="col-sm-6 offset-sm-3">
+          <%= f.label :image, "写真", class: "col-sm-3 col-form-label" %>
+          <div class="col-sm-6">
+            <%= f.file_field :image, accept: "image/*" %>
+          </div>
+        </div>
+        <%= f.hidden_field :register_id %>
+        <div class="form-group row">
+          <div class="col-sm-2 offset-sm-3">
+            <%= link_to "戻る", user_register_equipments_path(register_id: @registerId), class: 'btn btn-danger' %>
+          </div>
+          <div class="col-sm-3">
             <%= f.submit "新規登録", class: 'btn btn-primary' %>
           </div>
         </div>

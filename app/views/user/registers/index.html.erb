@@ -15,7 +15,7 @@
           <tbody>
             <% @registers.each do |register| %>
             <tr>
-              <td><%= register.reference_number %></td>
+              <td><%= link_to register.reference_number, user_register_equipments_path(register) %></td>
               <td><%= register.name %></td>
               <td><%= register.detail  %></td>
             </tr>

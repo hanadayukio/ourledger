@@ -1,0 +1,62 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 mx-auto">
+      <h3 class="border-box py-5">機器詳細</h3>
+      <%= form_with model: @equipment, url: user_register_equipment_path(@registerId, @equipment), method: :patch do |f| %>
+      <div class="row">
+        <div class="col-lg-3">
+          <div>
+            <%= image_tag @equipment.get_image(250,250) %>
+            <%= f.file_field :image, accept: "image/*", class: "pt-1" %>
+          </div>
+        </div>
+        <div class="col-lg-5 pl-5">
+          <div class="row pb-1">
+            <div class="col-lg-3">管理番号</div>
+            <div class="col-lg-9"><%= f.text_field :reference_number, style: 'width: 280px;' %></div>
+          </div>
+          <div class="row pb-1">
+            <div class="col-lg-3">系統</div>
+            <div class="col-lg-9"><%= f.text_field :introduction, style: 'width: 280px;'  %></div>
+          </div>
+          <div class="row pb-1">
+            <div class="col-lg-3">名称</div>
+            <div class="col-lg-8"><%= f.text_field :name, style: 'width: 280px;'  %></div>
+          </div>
+          <div class="row pb-1">
+            <div class="col-lg-3">型番</div>
+            <div class="col-lg-9"><%= f.text_field :model, style: 'width: 280px;'  %></div>
+          </div>
+          <div class="row pb-1">
+            <div class="col-lg-3">設置箇所</div>
+            <div class="col-lg-9"><%= f.text_field :location, style: 'width: 280px;'  %></div>
+          </div>
+          <div class="row pb-1">
+            <div class="col-lg-3">製造年月日</div>
+            <div class="col-lg-9"><%= f.text_field :date, style: 'width: 280px;'  %></div>
+          </div>
+          <div class="row pb-1">
+            <div class="col-lg-3">登録/削除</div>
+            <div class="col-lg-9">
+              <%= f.select :is_deleted, options_for_select([[ '登録', false ], [ '削除', true ]]), {}, class: 'form-control-sm' %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row pt-4">
+        <div class="col-lg-7">備考</div>
+        <div class="col-lg-7 pl-4"><%= f.text_area :notes, style: 'width: 700px; height: 80px;'  %></div>
+      </div>
+      <div class="row pt-5">
+        <div class="mx-auto">
+          <div class="row">
+            <div class="col"><%= link_to "戻る", user_register_equipment_path(@registerId,@equipment), class: 'btn btn-primary' %></div>
+            <div class="col"><%= f.submit "変更を保存", class: 'btn btn-success' %></div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>

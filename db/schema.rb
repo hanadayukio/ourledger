@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2023_06_13_124239) do
   create_table "comments", force: :cascade do |t|
     t.integer "equipment_id", null: false
     t.integer "user_id", null: false
-    t.text "content", null: false
+    t.text "comment", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 2023_06_13_124239) do
     t.string "introduction", null: false
     t.string "location", null: false
     t.string "name", null: false
+    t.string "model", null: false
     t.string "date", null: false
     t.text "notes"
     t.boolean "is_deleted", default: false, null: false
@@ -99,8 +100,8 @@ ActiveRecord::Schema.define(version: 2023_06_13_124239) do
     t.string "code", null: false
     t.string "name", null: false
     t.string "name_kana", null: false
-    t.boolean "is_deletednull", default: false, null: false
-    t.boolean "edit_permissionnull", default: false, null: false
+    t.boolean "is_deleted", default: false, null: false
+    t.boolean "edit_permission", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -116,4 +117,5 @@ ActiveRecord::Schema.define(version: 2023_06_13_124239) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "equipment", "registers"
 end

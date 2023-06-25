@@ -1,0 +1,46 @@
+<!--機器一覧-->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-12 px-5 px-sm-0 mx-auto">
+      <h3 class="border-box py-5">（※※台帳）機器一覧</h3>
+      <div class="navbar navbar-expand-lg navbar-light"></div>
+      <div><%= link_to "新規登録", new_user_register_equipment_path(@register), class: 'btn btn-success' %></div>
+        <table class="table table-hover tabel-inverse col-lg-12">
+          <thead>
+            <tr>
+              <th class="col-lg-1">管理番号</th>
+              <th class="col-lg-2">系統</th>
+              <th class="col-lg-2">名称</th>
+              <th class="col-lg-2">型番</th>
+              <th class="col-lg-1">設置箇所</th>
+              <th class="col-lg-1">詳細</th>
+              <th class="col-lg-1">製造年月日</th>
+              <th class="col-lg-1">コメント数</th>
+              <th class="col-lg-1">登録/削除</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @equipments.each do |equipment| %>
+            <tr>
+              <td><%= link_to equipment.reference_number, user_register_equipment_path(@register,equipment) %></td>
+              <td><%= equipment.introduction %></td>
+              <td><%= equipment.name %></td>
+              <td><%= equipment.model %></td>
+              <td><%= equipment.location %></td>
+              <td><%= truncate(equipment.notes, length: 10, separator: '...') %></td>
+              <td><%= equipment.date %></td>
+              <td><%= equipment.comments.count %> 件</td>
+              <td><% if equipment.is_deleted %>
+                <p class="text-secondary">削除中</p>
+                  <% else %>
+                <p class="text-success">登録中</p>
+                  <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>  
+      </div>
+    </div>
+  </div>
+</div>

@@ -4,7 +4,7 @@ class CreateComments < ActiveRecord::Migration[6.1]
       
       t.integer :equipment_id,  null: false
       t.integer :user_id,       null: false
-      t.text    :content,       null: false
+      t.text    :comment,       null: false
 
       t.timestamps
     end
