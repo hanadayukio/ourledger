@@ -26,7 +26,7 @@ class Admin::SessionsController < Devise::SessionsController
   # end
   
   def after_sign_in_path_for(resource)
-      admin_top_page_path
+      admin_home_page_path
   end
   
   def after_sign_out_path_for(resource)

@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-12 px-5 px-sm-0 mx-auto">
+      <h3 class="border-box py-5">ユーザー 一覧</h3>
+      <div class="navbar navbar-expand-lg navbar-light"></div>
+      <div><%= link_to "新規登録", new_admin_user_path, class: 'btn btn-success' %></div>
+        <table class="table table-hover tabel-inverse col-lg-12">
+          <thead>
+            <tr>
+              <th class="col-lg-1">社員番号</th>
+              <th class="col-lg-2">氏名</th>
+              <th class="col-lg-2">フリガナ</th>
+              <th class="col-lg-2">メールアドレス</th>
+              <th class="col-lg-2">登録日時</th>
+              <th class="col-lg-1">編集権限</th>
+              <th class="col-lg-2">退社ステータス</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+            <tr>
+              <td><%= link_to user.code, admin_user_path(user.id) %></td>
+              <td><%= user.name %></td>
+              <td><%= user.name_kana %></td>
+              <td><%= user.email %></td>
+              <td><%= user.created_at.strftime('%Y/%m/%d %H:%M') %></td>
+              <td><% if user.edit_permission %>
+                <p class="text-secondary">無</p>
+                  <% else %>
+                <p class="text-success">有</p>
+                  <% end %>
+              </td>
+              <td><% if user.is_deleted %>
+                <p class="text-secondary">退社</p>
+                  <% else %>
+                <p class="text-success">社員</p>
+                  <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>  
+      </div>
+    </div>
+  </div>
+</div>

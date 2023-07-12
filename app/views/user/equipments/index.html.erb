@@ -2,7 +2,9 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-12 px-5 px-sm-0 mx-auto">
-      <h3 class="border-box py-5">（※※台帳）機器一覧</h3>
+      <h3 class="border-box py-5">
+        （<%= @register.name %>台帳）機器一覧
+      </h3>
       <div class="navbar navbar-expand-lg navbar-light"></div>
       <div><%= link_to "新規登録", new_user_register_equipment_path(@register), class: 'btn btn-success' %></div>
         <table class="table table-hover tabel-inverse col-lg-12">

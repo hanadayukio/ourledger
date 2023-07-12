@@ -21,17 +21,20 @@
             <ul class="navbar-nav ml-auto">
             <% if admin_signed_in? %>
             <li class="nav-item pr-4">
-              <button type="button" class="btn btn-light btn-sm"><%= link_to"マイページ", admin_top_page_path, class: 'nav-link text-dark'  %></button>
+              <button type="button" class="btn btn-light btn-sm"><%= link_to"マイページ", admin_home_page_path, class: 'nav-link text-dark'  %></button>
             </li>
             <li class="nav-item pr-4">
               <button type="button" class="btn btn-light btn-sm"><%= link_to"管理者ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark'  %></button>
+            </li>
+            <li class="nav-item pr-4">
+              <button type="button" class="btn btn-light btn-sm"><%= link_to"ユーザー 一覧", admin_users_path, class: 'nav-link text-dark'  %></button>
             </li>
             <li class="nav-item pr-4">
               <button type="button" class="btn btn-light btn-sm"><%= link_to"台帳一覧", admin_registers_path, class: 'nav-link text-dark'  %></button>
             </li>
             <% elsif user_signed_in? %>
             <li class="nav-item pr-4">
-              <button type="button" class="btn btn-light btn-sm"><%= link_to"マイページ", top_page_path, class: 'nav-link text-dark'  %></button>
+              <button type="button" class="btn btn-light btn-sm"><%= link_to"マイページ", user_home_page_path, class: 'nav-link text-dark'  %></button>
             </li>
             <li class="nav-item pr-4">
               <button type="button" class="btn btn-light btn-sm"><%= link_to"台帳一覧", user_registers_path, class: 'nav-link text-dark'  %></button>
