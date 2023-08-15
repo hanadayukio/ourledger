@@ -15,12 +15,10 @@
 - DB化をし会社内で共有、同時に変更を行いたい
 - Excelでまとめるのが苦手な方
 
-
 ### 主な利用シーン
 - 社内で建物やフロア毎などの機器リストDB管理がしたい
 - csvデータを使用してインポート一括でDB管理へ反映したい
 - データベース管理することで変更履歴の取得が可能や明瞭化をしたい
-
 
 ## 実装機能チェックシート
 URL：https://docs.google.com/spreadsheets/d/1Go1ub7Y-34SoLr7OyKVTsvy9MqDYw0QCZSznrqKK2V0/edit?usp=sharing
@@ -35,10 +33,9 @@ URL：https://docs.google.com/spreadsheets/d/1Go1ub7Y-34SoLr7OyKVTsvy9MqDYw0QCZS
 - JSライブラリ：jQuery
 - IDE：Cloud9
 
-## 使用素材
-使用検討中です
 
 ## gemの使用
 - devise
 - kaminari
 - image_processing
+- roo

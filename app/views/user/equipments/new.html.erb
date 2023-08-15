@@ -1,69 +1,100 @@
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-12 px-5 px-sm-0 mx-auto">
-      <h3 class="border-box py-5">機器新規登録</h3>
-      <div class="col-lg-12 px-5 px-sm-0 mx-auto">
-      <%= form_with model: @equipment, url: user_register_equipments_path(@registerId), method: :post do |f| %>
-        <div class="form-group row">
-          <%= f.label :reference_number, "管理番号", class: "col-sm-3 col-form-label"  %>
-          <div class="col-sm-6">
-            <%= f.text_field :reference_number%>
+<%= render 'layouts/flash_message' %>
+<div class="container-auto mx-5">
+  <div class="row p-0">
+    <div class="col-lg-12">
+      <h3 class="border-box py-4">機器新規登録</h3>
+    </div>
+  </div>
+  <div class="row p-0">
+    <div class="col-lg-9 offset-3">
+      <%= form_with model: @equipment, url: user_register_equipments_path(@register_id), method: :post do |f| %>
+      <%= render 'user/equipments/validation_error' %>
+      <div class="row pb-3">
+        <div class="col-lg-2">管理番号</div>
+        <div class="col-lg-6">
+          <%= f.text_field :reference_number, style: 'width: 300px;', placeholder: "000000" %>
+          <div>
+            <% @equipment.errors.full_messages_for(:reference_number).each do |message| %>
+            <div class="error_message">※ <%= message %></div>
+            <% end %>
           </div>
         </div>
-        <div class="form-group row">
-          <%= f.label :introduction, "系統", class: "col-sm-3 col-form-label" %>
-          <div class="col-sm-6">
-            <%= f.text_field :introduction %>
-          </div>
-        </div>
-        <div class="form-group row">
-          <%= f.label :name, "名称", class: "col-sm-3 col-form-label" %>
-          <div class="col-sm-6">
-            <%= f.text_field :name %>
-          </div>
-        </div>
-        <div class="form-group row">
-          <%= f.label :model, "型番", class: "col-sm-3 col-form-label" %>
-          <div class="col-sm-6">
-            <%= f.text_field :model %>
-          </div>
-        </div>
-        <div class="form-group row">
-          <%= f.label :location, "設置箇所", class: "col-sm-3 col-form-label" %>
-          <div class="col-sm-6">
-            <%= f.text_field :location %>
-          </div>
-        </div>
-        <div class="form-group row">
-          <%= f.label :date, "製造年月日", class: "col-sm-3 col-form-label" %>
-          <div class="col-sm-6">
-            <%= f.text_field :date %>
-          </div>
-        </div>
-        <div class="form-group row">
-          <%= f.label :notes, "備考", class: "col-sm-3 col-form-label" %>
-          <div class="col-sm-6">
-            <%= f.text_area :notes %>
-          </div>
-        </div>
-        <div class="form-group row">
-          <%= f.label :image, "写真", class: "col-sm-3 col-form-label" %>
-          <div class="col-sm-6">
-            <%= f.file_field :image, accept: "image/*" %>
-          </div>
-        </div>
-        <%= f.hidden_field :register_id %>
-        <div class="form-group row">
-          <div class="col-sm-2 offset-sm-3">
-            <%= link_to "戻る", user_register_equipments_path(register_id: @registerId), class: 'btn btn-danger' %>
-          </div>
-          <div class="col-sm-3">
-            <%= f.submit "新規登録", class: 'btn btn-primary' %>
-          </div>
-        </div>
-      <% end %>
       </div>
+      <div class="row pb-3">
+        <div class="col-lg-2">系統</div>
+        <div class="col-lg-6">
+          <%= f.text_field :introduction, style: 'width: 300px;', placeholder: "事務室1"  %>
+          <div>
+            <% @equipment.errors.full_messages_for(:introduction).each do |message| %>
+            <div class="error_message">※ <%= message %></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="row pb-3">
+        <div class="col-lg-2">名称</div>
+        <div class="col-lg-6">
+          <%= f.text_field :name, style: 'width: 300px;',placeholder: "温湿度センサー" %>
+          <div>
+            <% @equipment.errors.full_messages_for(:name).each do |message| %>
+            <div class="error_message">※ <%= message %></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="row pb-3">
+        <div class="col-lg-2">型番</div>
+        <div class="col-lg-6">
+          <%= f.text_field :model, style: 'width: 300px;', placeholder: "THE000000" %>
+          <div>
+            <% @equipment.errors.full_messages_for(:model).each do |message| %>
+            <div class="error_message">※ <%= message %></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="row pb-3">
+        <div class="col-lg-2">設置箇所</div>
+        <div class="col-lg-6">
+          <%= f.text_field :location, style: 'width: 300px;', placeholder: "1F 廊下" %>
+          <div>
+            <% @equipment.errors.full_messages_for(:location).each do |message| %>
+            <div class="error_message">※ <%= message %></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="row pb-3">
+        <div class="col-lg-2">製造年月日</div>
+        <div class="col-lg-6">
+          <%= f.date_field :date, style: 'width: 200px;' %>
+          <div>
+            <% @equipment.errors.full_messages_for(:date).each do |message| %>
+            <div class="error_message">※ <%= message %></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="row pb-3">
+        <div class="col-lg-2">備考</div>
+        <div class="col-lg-6">
+          <%= f.text_area :notes, style: 'width: 300px;' %>
+        </div>
+      </div>
+      <div class="row pb-3">
+        <div class="col-lg-2">写真</div>
+        <div class="col-lg-6">
+          <%= f.file_field :image, accept: "image/*" %>
+        </div>
+      </div>
+      <%= f.hidden_field :register_id %>
+      <div class="row pt-4">
+        <div class="row offset-2">
+          <div class="col"><%= link_to "一覧画面", user_register_equipments_path(register_id: @register_id), class: 'btn btn-primary' %></div>
+          <div class="col"><%= f.submit "新規登録", class: 'btn btn-success' %></div>
+        </div>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>

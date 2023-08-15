@@ -55,7 +55,14 @@ ActiveRecord::Schema.define(version: 2023_06_13_124239) do
   create_table "change_logs", force: :cascade do |t|
     t.integer "equipment_id", null: false
     t.integer "user_id", null: false
-    t.string "detail", null: false
+    t.string "reference_number", null: false
+    t.string "introduction", null: false
+    t.string "location", null: false
+    t.string "name", null: false
+    t.string "model", null: false
+    t.string "date", null: false
+    t.text "notes"
+    t.datetime "changed_at", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -70,14 +77,15 @@ ActiveRecord::Schema.define(version: 2023_06_13_124239) do
 
   create_table "equipment", force: :cascade do |t|
     t.integer "register_id", null: false
-    t.string "reference_number", null: false
+    t.integer "reference_number", null: false
     t.string "introduction", null: false
     t.string "location", null: false
     t.string "name", null: false
     t.string "model", null: false
-    t.string "date", null: false
+    t.date "date", null: false
     t.text "notes"
     t.boolean "is_deleted", default: false, null: false
+    t.integer "lock_version", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

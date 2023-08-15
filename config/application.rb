@@ -19,6 +19,11 @@ module Ourledger
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     
+    # 日本語の言語設定
+    config.i18n.default_locale = :ja
+    
+    # config.action_controller.include_all_helpers = false
+    
     # 日本時間に変更
     config.time_zone = 'Tokyo'
   end

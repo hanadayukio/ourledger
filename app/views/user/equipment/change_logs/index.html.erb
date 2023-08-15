@@ -1,0 +1,70 @@
+<%= render 'layouts/flash_message' %>
+<div class="container-auto mx-5">
+  <div class="row">
+    <div class="col-lg-9">
+      <h3 class="border-box py-5">機器変更履歴</h3>
+    </div>
+  </div>
+  <div class="row-auto">
+    <div class="col-lg-12">
+      <input id="acd-check1" class="acd-check" type="checkbox">
+        <label class="acd-label" for="acd-check1">条件検索</label>
+        <div class="acd-content">
+        <%= form_with(url: user_register_equipment_change_logs_path, method: "get", class: "search-form") do %>
+          <%= text_field_tag :search_reference_number, params[:search_reference_number], placeholder: "管理番号を検索..." %>
+          <%= text_field_tag :search_introductio, params[:search_introductio], placeholder: "系統を検索..." %>
+          <%= text_field_tag :search_name, params[:search_name], placeholder: "名称を検索..." %>
+          <%= text_field_tag :search_model, params[:search_model], placeholder: "型番を検索..." %>
+          <%= text_field_tag :search_location, params[:search_location], placeholder: "設置箇所を検索..." %>
+          <%= text_field_tag :search_notes, params[:search_notes], placeholder: "詳細を検索..." %>
+          <%= text_field_tag :search_date, params[:search_date], placeholder: "製造年月日を検索..." %>
+          <%= text_field_tag :search_user, params[:search_user], placeholder: "ユーザーを検索..." %>
+          <%= text_field_tag :start_date, params[:start_date], placeholder: "開始日を検索..." %>
+          <%= text_field_tag :end_date, params[:end_date], placeholder: "終了日を検索..." %>
+          <%= submit_tag "検索", class: "btn btn-light mt-1" %>
+        </div>
+        <%= link_to '条件クリア', user_register_equipment_change_logs_path, class: "btn btn-secondary mt-1" %>
+        <%= link_to "機器詳細", user_register_equipment_path(@register_id,@equipment_id), class: 'btn btn-primary mt-1' %>
+      <% end %>
+    </div>
+  </div>
+  <div class="navbar navbar-expand-lg navbar-light">
+    <table class="table table-hover tabel-inverse col-lg-12">
+      <thead>
+        <tr>
+          <!--sort_orderはhelper記述-->
+          <th class="col-lg-1">管理番号 <%= change_logs_sort_order "reference_number", "" %></th>
+          <th class="col-lg-1">系統 <%= change_logs_sort_order "introduction", "" %></th>
+          <th class="col-lg-1">名称 <%= change_logs_sort_order "name", "" %></th>
+          <th class="col-lg-1">型番 <%= change_logs_sort_order "model", "" %></th>
+          <th class="col-lg-1">設置箇所 <%= change_logs_sort_order "location", "" %></th>
+          <th class="col-lg-1">備考 <%= change_logs_sort_order "notes", "" %></th>
+          <th class="col-lg-1">製造年月日 <%= change_logs_sort_order "date", "" %></th>
+          <th class="col-lg-1">
+              ユーザー名 <%= change_logs_sort_order "user_id", "" %></br>変更日時 <%= change_logs_sort_order "changed_at", "" %>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @change_logs.each do |changelog| %>
+        <tr>
+          <td><p class="text-wrap  text-break" style="width: 100px;"><%= changelog.reference_number %></p></td>
+          <td><p class="text-wrap  text-break" style="width: 120px;"><%= changelog.introduction %></p></td>
+          <td><p class="text-wrap  text-break" style="width: 120px;"><%= changelog.name %></p></td>
+          <td><p class="text-wrap  text-break" style="width: 120px;"><%= changelog.model %></p></td>
+          <td><p class="text-wrap  text-break" style="width: 120px;"><%= changelog.location %></p></td>
+          <td><p class="text-wrap  text-break" style="width: 120px;"><%= changelog.notes %></p></td>
+          <td><p class="text-wrap  text-break" style="width: 120px;"><%= changelog.date %></p></td>
+          <td><p class="text-wrap  text-break" style="width: 120px;">
+            <%= changelog.user.name %></br><%= changelog.changed_at.strftime('%Y/%m/%d %H:%M:%S') %>
+          </p></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>  
+    </div>
+  </div>
+  <div class="mb-3 d-flex justify-content-center">
+    <%= paginate @change_logs %>
+  </div>
+</div>

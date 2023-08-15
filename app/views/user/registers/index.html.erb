@@ -1,28 +1,48 @@
-<!--ユーザー台帳一覧-->
-<div class="container">
+<div class="container-auto mx-5">
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-12 px-5 px-sm-0 mx-auto">
-      <h3 class="border-box py-5">台帳詳細</h3>
-      <div class="col-lg-12 px-5 px-sm-0 mx-auto">
-        <table class="table table-hover tabel-inverse col-lg-12">
-          <thead>
-            <tr>
-              <th>管理番号</th>
-              <th>名称</th>
-              <th>台帳説明</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @registers.each do |register| %>
-            <tr>
-              <td><%= link_to register.reference_number, user_register_equipments_path(register) %></td>
-              <td><%= register.name %></td>
-              <td><%= register.detail  %></td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>  
-      </div>
+    <div class="col-lg-12">
+      <h3 class="border-box py-4">台帳詳細</h3>
     </div>
+  </div>
+  <div class="row-auto">
+    <div class="col-lg-12">
+      <input id="acd-check1" class="acd-check" type="checkbox">
+        <label class="acd-label" for="acd-check1">条件検索</label>
+        <div class="acd-content">
+        <%= form_with(url: user_registers_path, method: "get", class: "search-form") do %>
+          <%= text_field_tag :search_reference_number, params[:search_reference_number], placeholder: "管理番号を検索..." %>
+          <%= text_field_tag :search_name, params[:search_name], placeholder: "名称を検索..." %>
+          <%= text_field_tag :search_detail, params[:search_detail], placeholder: "台帳説明を検索..." %>
+          <%= submit_tag "検索", class: "btn btn-light" %>
+        </div>
+        <%= link_to '条件クリア', user_registers_path, class: "btn btn-secondary mt-1" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="navbar navbar-expand-lg navbar-light">
+    <table class="table table-hover tabel-inverse col-lg-12">
+      <thead>
+        <tr>
+          <!--sort_orderはhelper記述-->
+          <th class="col-lg-1">管理番号 <%= user_registers_sort_order "reference_number", "" %></th>
+          <th class="col-lg-2">名称 <%= user_registers_sort_order "name", "" %></th>
+          <th class="col-lg-4">台帳説明 <%= user_registers_sort_order "detail", "" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @registers.each do |register| %>
+        <tr>
+          <td><p class="d-inline-block text-truncate"  style="width: 140px;">
+            <%= link_to register.reference_number, user_register_equipments_path(register) %>
+            </p></td>
+          <td><p class="d-inline-block text-truncate" style="width: 250px;"><%= register.name %></p></td>
+          <td><p class="d-inline-block text-truncate" style="width: 400px;"><%= register.detail  %></P></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>  
+  </div>
+    <div class="mb-3 d-flex justify-content-center">
+    <%= paginate @registers %>
   </div>
 </div>

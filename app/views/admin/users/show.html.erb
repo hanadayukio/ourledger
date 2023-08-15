@@ -1,71 +1,64 @@
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-12 px-5 px-sm-0 mx-auto">
-      <h3 class="border-box py-5">ユーザー詳細</h3>
-      <div class="col-lg-12 px-5 px-sm-0 mx-auto">
-        <div class="row">
-          <div class="col-lg-3 pb-2">
-            <div>社員番号</div>
-          </div>
-          <div class="col-lg-6 pb-2">
-            <%= @user.code %>
-          </div>
+<%= render 'layouts/flash_message' %>
+<div class="container-auto mx-5">
+  <div class="row p-0">
+    <div class="col-lg-12">
+      <h3 class="border-box py-4">ユーザー詳細</h3>
+    </div>
+  </div>
+  <div class="row p-0">
+    <div class="col-lg-8 offset-4">
+      <div class="row pb-2">
+        <div class="col-lg-3">社員番号</div>
+        <div class="col-lg-6">
+          <%= @user.code %>
         </div>
-        <div class="row">
-          <div class="col-lg-3 pb-2">
-            <div>氏名</div>
-          </div>
-          <div class="col-lg-6 pb-2">
-            <%= @user.name %>
-          </div>
+      </div>
+      <div class="row pb-2">
+        <div class="col-lg-3">名前</div>
+        <div class="col-lg-6">
+          <%= @user.name %>
         </div>
-        <div class="row">
-          <div class="col-lg-3 pb-2">
-            <div>フリガナ</div>
-          </div>
-          <div class="col-lg-6 pb-2">
-            <%= @user.name_kana %>
-          </div>
+      </div>
+      <div class="row pb-2">
+        <div class="col-lg-3">フリガナ</div>
+        <div class="col-lg-6">
+          <%= @user.name_kana %>
         </div>
-        <div class="row">
-          <div class="col-lg-3 pb-2">
-            <div>メールアドレス</div>
-          </div>
-          <div class="col-lg-6 pb-2">
-            <%= @user.email %>
-          </div>
+      </div>
+      <div class="row pb-2">
+        <div class="col-lg-3">メールアドレス</div>
+        <div class="col-lg-6">
+          <%= @user.email %>
         </div>
-        <div class="row">
-          <div class="col-lg-3 pb-2">
-            <div>退社ステータス</div>
-          </div>
-          <div class="col-lg-6 pb-2">
-            <% if @user.is_deleted %>
-              <div class="text-secondary">退社</div>
-            <% else %>
-              <div class="text-success">社員</div>
-            <% end %>
-          </div>
+      </div>
+      <div class="row pb-2">
+        <div class="col-lg-3">退社ステータス</div>
+        <div class="col-lg-6">
+          <% if @user.is_deleted %>
+            <div class="text-secondary">退社</div>
+          <% else %>
+            <div class="text-success">社員</div>
+          <% end %>
         </div>
-        <div class="row">
-          <div class="col-lg-3 pb-2">
-            <div>編集権限</div>
-          </div>
-          <div class="col-lg-6 pb-2">
-            <% if @user.edit_permission %>
-              <div class="text-secondary">無</div>
-            <% else %>
-              <div class="text-success">有</div>
-            <% end %>
-          </div>
+      </div>
+      <div class="row pb-2">
+        <div class="col-lg-3">編集権限</div>
+        <div class="col-lg-6">
+          <% if @user.edit_permission %>
+            <div class="text-secondary">無</div>
+          <% else %>
+            <div class="text-success">有</div>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
-  <div class="form-group row">
-    <div class="col-sm-6 offset-sm-3">
-      <%= link_to "編集する", edit_admin_user_path(@user[:id]), class: 'btn btn-primary' %>
+  <div class="row pt-4">
+    <div class="mx-auto">
+      <div class="row">
+        <div class="col"><%= link_to "一覧画面", admin_users_path, class: 'btn btn-primary' %></div>
+        <div class="col">  <%= link_to "編集する", edit_admin_user_path(@user[:id]), class: 'btn btn-success' %></div>
+      </div>
     </div>
   </div>
 </div>

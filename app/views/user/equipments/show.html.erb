@@ -1,62 +1,80 @@
-
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12 mx-auto">
-      <h3 class="border-box py-5">機器詳細</h3>
+<%= render 'layouts/flash_message' %>
+<div class="container-auto mx-5">
+  <div class="row p-0">
+    <div class="col-lg-12">
+      <h3 class="border-box py-4">機器詳細</h3>
+    </div>
+  </div>
+  <div class="row p-0">
+    <div class="col-lg-8">
       <div class="row">
-        <div class="col-lg-3">
+        <div class="col-lg-4">
           <div>
-            <%= image_tag @equipment.get_image(250,250) %>
+          <%= image_tag @equipment.get_image(250,250) %>
           </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-8">
           <div class="row pb-1">
             <div class="col-lg-3">管理番号</div>
-            <div class="col-lg-9"><%= @equipment.reference_number %></div>
+            <div class="col-lg-9 text-wrap  text-break"><%= @equipment.reference_number %></div>
           </div>
           <div class="row pb-1">
             <div class="col-lg-3">系統</div>
-            <div class="col-lg-9"><%= @equipment.introduction %></div>
+            <div class="col-lg-9 text-wrap  text-break"><%= @equipment.introduction %></div>
           </div>
           <div class="row pb-1">
             <div class="col-lg-3">名称</div>
-            <div class="col-lg-8"><%= @equipment.name %></div>
+            <div class="col-lg-9 text-wrap  text-break"><%= @equipment.name %></div>
           </div>
           <div class="row pb-1">
             <div class="col-lg-3">型番</div>
-            <div class="col-lg-9"><%= @equipment.model %></div>
+            <div class="col-lg-9 text-wrap  text-break"><%= @equipment.model %></div>
           </div>
           <div class="row pb-1">
             <div class="col-lg-3">設置箇所</div>
-            <div class="col-lg-9"><%= @equipment.location %></div>
+            <div class="col-lg-9 text-wrap  text-break"><%= @equipment.location %></div>
           </div>
           <div class="row pb-1">
             <div class="col-lg-3">製造年月日</div>
             <div class="col-lg-9"><%= @equipment.date %></div>
           </div>
         </div>
-        <div class="col-lg-5">
-          <p>コメント件数: <%= @equipment.comments.count %></p>
-          <% @equipment.comments.each do |comment| %>
-            <%= comment.comment %></br>
-            <%= comment.user.name %><%= comment.created_at.strftime('%Y/%m/%d') %>
-          <% end %>
-          <%= form_with model: [@equipment, @comment], url: user_register_equipment_comments_path(@registerId, @equipment), method: :post  do |f| %>
-            <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
-            <%= f.submit "送信する" %>
-          <% end %>
+      </div>
+      <div class="row mt-3">
+        <div class="col-lg-12">備考</div>
+        <div class="col-lg-12 p-2 border border-dark rounded" style="height: 100px; max-width: 900px;">
+          <%= safe_join(@equipment.notes.split("\n"),tag(:br)) %>
         </div>
       </div>
-      <div class="row pt-4">
-        <div class="col-lg-12">備考</div>
-        <div class="col-lg-12 pl-4"><%= @equipment.notes %></div>
-      </div>
-      <div class="row pt-5">
-        <div class="mx-auto">
-          <div class="row">
-            <div class="col"><%= link_to "一覧画面", user_register_equipments_path(@registerId), class: 'btn btn-primary' %></div>
-            <div class="col"><%= link_to "編集する", edit_user_register_equipment_path(@registerId,@equipment), class: 'btn btn-success' %></div>
+    </div>
+    <div class="col-lg-4">
+      <div>コメント件数: <%= @equipment.comments.count %></div>
+      <% @equipment.comments.each do |comment| %>
+        <div class="border border-dark rounded p-1 my-1"><%= safe_join(comment.comment.split("\n"),tag(:br)) %>
+          <div class="text-right">
+            <%= comment.user.name %> <%= comment.created_at.strftime('%Y/%m/%d') %>
           </div>
+        </div>
+      <% end %>
+      <div>
+      <%= form_with model: [@equipment, @comment], url: user_register_equipment_comments_path(@register_id, @equipment), method: :post  do |f| %>
+        <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+        <%= f.submit "送信する" %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row pt-4">
+      <div class="mx-auto">
+        <div class="row">
+          <div class="col"><%= link_to "一覧画面", user_register_equipments_path(@register_id), class: 'btn btn-primary' %></div>
+          <% if !current_user.edit_permission %>
+          <div class="col">
+            <%= link_to "編集する", edit_user_register_equipment_path(@register_id,@equipment), class: 'btn btn-success' %>
+          </div>
+          <% end %>
+          <div class="col"><%= link_to "変更履歴", user_register_equipment_change_logs_path(@register_id,@equipment), class: 'btn btn-success' %></div>
+        </div>
         </div>
       </div>
     </div>

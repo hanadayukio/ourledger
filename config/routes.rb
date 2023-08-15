@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
   devise_for :user, controllers: {
     sessions: 'user/sessions',
     passwords: 'user/passwords',
@@ -15,15 +17,16 @@ Rails.application.routes.draw do
     get '/admin/sign_out' => 'devise/sessions#destroy'
   end
 
-    
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+# ホーム画面
   get '/' => 'home/homes#top', as: 'top_page'
   get '/home' => 'user/homes#top', as: 'user_home_page'
   get '/admin/home' => 'admin/homes#top', as: 'admin_home_page'
   
   # 管理者台帳
   namespace :admin do
-    resources :registers, path: '/registers', only: [:new, :index, :show, :edit, :update]
+    resources :registers, path: '/registers', only: [:index, :show, :edit, :update]
+    get '/register/new', to: 'registers#new', as: 'new_register'
+
     resources :users, path: '/users', only: [:new, :index, :show, :edit, :update, :create]
   end
 
@@ -33,7 +36,9 @@ Rails.application.routes.draw do
     resources :registers, path: '/registers', only: [:index] do
       # ユーザー機器/コメント
       resources :equipments do
-        resources :comments, only: [:create]
+        resources :comments, only: [:create], controller: 'equipment/comments'
+         # 機器変更履歴
+        resources :change_logs, only: [:create, :index], controller: 'equipment/change_logs'
       end
     end
   end

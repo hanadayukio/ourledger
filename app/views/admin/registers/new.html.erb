@@ -1,35 +1,54 @@
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-12 px-5 px-sm-0 mx-auto">
-      <h3 class="border-box py-5">台帳新規登録</h3>
-      <div class="col-lg-12 px-5 px-sm-0 mx-auto">
+<%= render 'layouts/flash_message' %>
+<div class="container-auto mx-5">
+  <div class="row p-0">
+    <div class="col-lg-12">
+      <h3 class="border-box py-4">台帳新規登録</h3>
+    </div>
+  </div>
+  <div class="row p-0">
+    <div class="col-lg-9 offset-3">
       <%= form_with model: @register, url: create_admin_register_path do |f| %>
-        <div class="form-group row">
-          <%= f.label :reference_number, "管理番号", class: "col-sm-3 col-form-label"  %>
-          <div class="col-sm-6">
-            <%= f.text_field :reference_number%>
+      <%= render 'admin/registers/validation_error' %>
+      <div class="row pb-3">
+        <div class="col-lg-2">管理番号</div>
+        <div class="col-lg-6">
+          <%= f.text_field :reference_number, style: 'width: 300px;', placeholder: "000000" %>
+          <div>
+            <% @register.errors.full_messages_for(:reference_number).each do |message| %>
+            <div class="error_message">※ <%= message %></div>
+            <% end %>
           </div>
         </div>
-        <div class="form-group row">
-          <%= f.label :name, "名称", class: "col-sm-3 col-form-label" %>
-          <div class="col-sm-6">
-            <%= f.text_field :name %>
-          </div>
-        </div>
-        <div class="form-group row">
-          <%= f.label :detail, "説明", class: "col-sm-3 col-form-label" %>
-          <div class="col-sm-6">
-            <%= f.text_area :detail %>
-          </div>
-        </div>
-        <div class="form-group row">
-          <div class="col-sm-6 offset-sm-3">
-            <%= f.submit "新規登録", class: 'btn btn-primary' %>
-          </div>
-        </div>
-      <% end %>
       </div>
+      <div class="row pb-3">
+        <div class="col-lg-2">名称</div>
+        <div class="col-lg-6">
+          <%= f.text_field :name, style: 'width: 300px;', placeholder: "○○ビル" %>
+          <div>
+            <% @register.errors.full_messages_for(:name).each do |message| %>
+            <div class="error_message">※ <%= message %></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="row pb-3">
+        <div class="col-lg-2">台帳説明</div>
+        <div class="col-lg-6">
+          <%= f.text_area :detail, style: 'width: 300px;' %>
+          <div>
+            <% @register.errors.full_messages_for(:detail).each do |message| %>
+            <div class="error_message">※ <%= message %></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="row pt-4">
+        <div class="row offset-2">
+          <div class="col"><%= link_to "一覧画面", admin_registers_path, class: 'btn btn-primary' %></div>
+          <div class="col"><%= f.submit "新規登録", class: 'btn btn-success' %></div>
+        </div>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>

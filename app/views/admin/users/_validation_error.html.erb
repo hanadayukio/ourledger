@@ -1,0 +1,38 @@
+<!--バリデーションエラー箇所抽出、エラー時のclass追加-->
+<% if @user.errors.any? %>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var user_code = document.querySelector('#user_code');
+    var user_name = document.querySelector('#user_name');
+    var user_name_kana = document.querySelector('#user_name_kana');
+    var user_email = document.querySelector('#user_email');
+    var user_password = document.querySelector('#user_password');
+    var arr = <%= raw@user.errors.full_messages.map {|message| message.split(" ")[0]}.to_json %>
+    if (arr.includes("社員番号")){
+      if (user_code) {
+        user_code.classList.add('error_border');
+      }
+    }
+    if (arr.includes("名前")){
+      if (user_name) {
+        user_name.classList.add('error_border');
+      }
+    }
+    if (arr.includes("フリガナ")){
+      if (user_name_kana) {
+        user_name_kana.classList.add('error_border');
+      }
+    }
+    if (arr.includes("メールアドレス")){
+      if (user_email) {
+        user_email.classList.add('error_border');
+      }
+    }
+    if (arr.includes("パスワード")){
+      if (user_password) {
+        user_password.classList.add('error_border');
+      }
+    }
+  });
+</script>
+<% end %>

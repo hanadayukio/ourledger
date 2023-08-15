@@ -1,7 +1,7 @@
-
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-12 px-5 px-sm-0 mx-auto">
+    <%= render 'layouts/flash_message' %>
       <h3 class="border-box py-5">管理者ログイン</h3>
       <div class="col-lg-12 px-5 px-sm-0 mx-auto">
       <%= form_with model: @admin,url: admin_session_path do |f| %>

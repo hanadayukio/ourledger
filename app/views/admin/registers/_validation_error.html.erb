@@ -1,0 +1,26 @@
+<!--バリデーションエラー箇所抽出、エラー時のclass追加-->
+<% if @register.errors.any? %>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var register_reference_number = document.querySelector('#register_reference_number');
+    var register_name = document.querySelector('#register_name');
+    var register_detail = document.querySelector('#register_detail');
+    var arr = <%= raw@register.errors.full_messages.map {|message| message.split(" ")[0]}.to_json %>
+    if (arr.includes("管理番号")){
+      if (register_reference_number) {
+        register_reference_number.classList.add('error_border');
+      }
+    }
+    if (arr.includes("名称")){
+      if (register_name) {
+        register_name.classList.add('error_border');
+      }
+    }
+    if (arr.includes("説明")){
+      if (register_detail) {
+        register_detail.classList.add('error_border');
+      }
+    }
+  });
+</script>
+<% end %>

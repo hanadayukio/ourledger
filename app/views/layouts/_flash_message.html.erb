@@ -1,0 +1,33 @@
+<div>
+  <% flash.each do |message_type, message| %>
+    <% if message_type == "alert" %>
+    <div class="alert-message text-danger text-center border border-danger flash-message px-5">
+      <%= message%>
+    </div>
+    <% elsif message_type == "notice" %>
+    <div class="notice-message text-primary flash-message px-5">
+      <%= message %>
+    </div>
+    <% elsif message_type == "error" %>
+    <div class="alert-message text-danger text-center border border-danger flash-message px-5">
+      <%= message %>
+    </div>
+    <% else %>
+    <div class="default-message flash-message px-5">
+      <%= message %>
+    </div>
+    <% end %>
+  <% end %>
+</div>
+
+<script>
+  $(function() {
+    // フラッシュメッセージを非表示にする関数
+    function hideFlashMessage() {
+      $(".flash-message").slideUp();
+    }
+
+    // ページロード後、5秒（5000ミリ秒）後にフラッシュメッセージを非表示にする
+    setTimeout(hideFlashMessage, 5000);
+  });
+</script>

@@ -1,0 +1,36 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        code: 社員番号
+        name_kana: フリガナ
+      change_log:
+        reference_number: 管理番号
+        introduction: 系統
+        location: 設置箇所
+        name: 名称
+        model: 型番
+        date: 製造年月日
+        notes: 備考
+        changed_at: 変更日時
+      comment:
+        comment: コメント
+      equipment:
+        reference_number: 管理番号
+        introduction: 系統
+        location: 設置箇所
+        name: 名称
+        model: 型番
+        date: 製造年月日
+        notes: 備考
+      register:
+        reference_number: 管理番号
+        name: 名称
+        detail: 説明
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."

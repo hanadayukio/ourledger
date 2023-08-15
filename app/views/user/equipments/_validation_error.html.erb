@@ -1,0 +1,44 @@
+<!--バリデーションエラー箇所抽出、エラー時のclass追加-->
+<% if @equipment.errors.any? %>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var equipment_reference_number = document.querySelector('#equipment_reference_number');
+    var equipment_introduction = document.querySelector('#equipment_introduction');
+    var equipment_name = document.querySelector('#equipment_name');
+    var equipment_model = document.querySelector('#equipment_model');
+    var equipment_location = document.querySelector('#equipment_location');
+    var equipment_date = document.querySelector('#equipment_date');
+    var arr = <%= raw@equipment.errors.full_messages.map {|message| message.split(" ")[0]}.to_json %>
+    if (arr.includes("管理番号")){
+      if (equipment_reference_number) {
+        equipment_reference_number.classList.add('error_border');
+      }
+    }
+    if (arr.includes("系統")){
+      if (equipment_introduction) {
+        equipment_introduction.classList.add('error_border');
+      }
+    }
+    if (arr.includes("名称")){
+      if (equipment_name) {
+        equipment_name.classList.add('error_border');
+      }
+    }
+    if (arr.includes("型番")){
+      if (equipment_model) {
+        equipment_model.classList.add('error_border');
+      }
+    }
+    if (arr.includes("設置箇所")){
+      if (equipment_location) {
+        equipment_location.classList.add('error_border');
+      }
+    }
+    if (arr.includes("製造年月日")){
+      if (equipment_date) {
+        equipment_date.classList.add('error_border');
+      }
+    }
+  });
+</script>
+<% end %>

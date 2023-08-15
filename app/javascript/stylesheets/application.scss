@@ -2,7 +2,104 @@
 
 @use '~bootstrap/scss/bootstrap';
 
-
-.my-size-1{
-  font-size: 20px;
+// flashメッセージ背景をピンクに設定
+.alert-message {
+  background-color: pink;
 }
+// バリデーションエラーフォームを赤枠に設定
+.error_border {
+   border: 2px solid #dc3545;
+}
+// バリデーションエラーメッセージ文字色を赤に設定
+.error_message{
+    color: red;
+}
+// 検索画面アコーディオンメニュー
+.acd-check{
+    display: none;
+}
+.acd-label{
+    background: #007bff;
+    color: #fff;
+    display: block;
+    margin-bottom: 0px;
+    padding: 13px;
+    position: relative;
+    width: 200px;
+    border-radius: 5px;
+}
+.acd-label:after{
+    background: #007bff;
+    box-sizing: border-box;
+    content: '\f067';
+    display: block;
+    font-family: "Font Awesome 5 Free";
+    height: 50px;
+    padding: 10px 20px;
+    position: absolute;
+    right: 0;
+    top: 0px;
+    border-radius: 5px;
+}
+.acd-content{
+    background: #007bff;
+    display: block;
+    height: 0px;
+    opacity: 0;
+    padding: 0 10px;
+    transition: .5s;
+    border-radius: 5px;
+    visibility: hidden;
+}
+.acd-check:checked + .acd-label:after{
+    content: '\30fc';
+}
+.acd-check:checked + .acd-label + .acd-content{
+    height: 90px;
+    opacity: 1;
+    padding: 10px;
+    visibility: visible;
+}
+.position-relative{
+    position: absolute;
+    left: 320px;
+    margin: 0px 0px 0px 200px;
+}
+// ページネーション用
+.pagination span{
+  padding: 5px;
+}
+
+// 検索画面アコーディオンメニュー
+// .acd-label-log{
+//     background: #007bff;
+//     color: #fff;
+//     display: block;
+//     margin-bottom: 0px;
+//     padding: 13px;
+//     position: relative;
+//     width: 200px;
+//     border-radius: 5px;
+// }
+// .acd-label-log:after{
+//     background: #007bff;
+//     box-sizing: border-box;
+//     content: '\f067';
+//     display: block;
+//     font-family: "Font Awesome 5 Free";
+//     height: 50px;
+//     padding: 10px 20px;
+//     position: absolute;
+//     right: 0;
+//     top: 0px;
+//     border-radius: 5px;
+// }
+// .acd-check:checked + .acd-label-log:after{
+//     content: '\30fc';
+// }
+// .acd-check:checked + .acd-label-log + .acd-content{
+//     height: 120px;
+//     opacity: 1;
+//     padding: 10px;
+//     visibility: visible;
+// }
