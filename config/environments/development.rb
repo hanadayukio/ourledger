@@ -77,9 +77,9 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
   
   # config.action_mailer.asset_host = 'http://localhost:8080'
- config.action_mailer.asset_host =  'https://eed521524ea64bce83e909f8dc061879.vfs.cloud9.ap-northeast-1.amazonaws.com/'
+  config.action_mailer.asset_host =  'https://eed521524ea64bce83e909f8dc061879.vfs.cloud9.ap-northeast-1.amazonaws.com'
   
-  config.action_mailer.default_url_options = { host: 'https://eed521524ea64bce83e909f8dc061879.vfs.cloud9.ap-northeast-1.amazonaws.com/' }
+  config.action_mailer.default_url_options = { host: 'https://eed521524ea64bce83e909f8dc061879.vfs.cloud9.ap-northeast-1.amazonaws.com' }
   # mail setting
   # メール送信時にエラーが発生した場合に、エラーを表示するように設定しています。
   config.action_mailer.raise_delivery_errors = true
