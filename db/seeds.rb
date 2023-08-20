@@ -7,16 +7,21 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+# Admin.create!(
+#   email: "hanada@gmail.com",
+#   password: "yukio1",
+#   )
+
 Admin.create!(
-  email: "hanada@gmail.com",
+  email: "youxiyangh@gmail.com",
   password: "yukio1",
   )
   
-User.create!(
-  email: "hanada@gmail.com",
-  password: "yukio1",
-  code: "111111",
-  name: "花田有希央",
-  name_kana: "ハナダユキオ",
-  )
+# User.create!(
+#   email: "hanada@gmail.com",
+#   password: "yukio1",
+#   code: "111111",
+#   name: "花田有希央",
+#   name_kana: "ハナダユキオ",
+#   )
   

@@ -1,8 +1,8 @@
 <%= render 'layouts/flash_message' %>
 <div class="container-auto mx-5">
-  <div class="row">
-    <div class="col-lg-9">
-      <h3 class="border-box py-5">機器変更履歴</h3>
+  <div class="row p-0">
+    <div class="col-lg-12 mx-auto">
+      <h3 class="border-box py-4">機器変更履歴</h3>
     </div>
   </div>
   <div class="row-auto">
@@ -19,8 +19,8 @@
           <%= text_field_tag :search_notes, params[:search_notes], placeholder: "詳細を検索..." %>
           <%= text_field_tag :search_date, params[:search_date], placeholder: "製造年月日を検索..." %>
           <%= text_field_tag :search_user, params[:search_user], placeholder: "ユーザーを検索..." %>
-          <%= text_field_tag :start_date, params[:start_date], placeholder: "開始日を検索..." %>
-          <%= text_field_tag :end_date, params[:end_date], placeholder: "終了日を検索..." %>
+          <%= text_field_tag :start_date, params[:start_date], placeholder: "変更日時を検索..." %><span class="text-white"> ~</span>
+          <%= text_field_tag :end_date, params[:end_date], placeholder: "変更日時を検索..." %>
           <%= submit_tag "検索", class: "btn btn-light mt-1" %>
         </div>
         <%= link_to '条件クリア', user_register_equipment_change_logs_path, class: "btn btn-secondary mt-1" %>

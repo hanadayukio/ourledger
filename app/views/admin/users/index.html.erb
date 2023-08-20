@@ -15,8 +15,8 @@
           <%= text_field_tag :search_name, params[:search_name], placeholder: "名前を検索..." %>
           <%= text_field_tag :search_name_kana, params[:search_name_kana], placeholder: "フリガナを検索..." %>
           <%= text_field_tag :search_email, params[:search_email], placeholder: "メールアドレスを検索..." %>
-          <%= text_field_tag :start_date, params[:start_date], placeholder: "開始日を検索..." %>
-          <%= text_field_tag :end_date, params[:end_date], placeholder: "終了日を検索..." %>
+          <%= text_field_tag :start_date, params[:start_date], placeholder: "登録日時を検索..." %><span class="text-white"> ~</span>
+          <%= text_field_tag :end_date, params[:end_date], placeholder: "登録日時を検索..." %>
           <!--<%= text_field_tag :search_name_kana, params[:search_name_kana], placeholder: "名称を検索..." %>-->
           <!--<%= text_field_tag :search_name_kana, params[:search_name_kana], placeholder: "名称を検索..." %>-->
           </br><%= submit_tag "検索", class: "btn btn-light mt-1" %>

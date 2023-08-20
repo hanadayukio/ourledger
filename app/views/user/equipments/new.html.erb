@@ -1,12 +1,12 @@
 <%= render 'layouts/flash_message' %>
 <div class="container-auto mx-5">
   <div class="row p-0">
-    <div class="col-lg-12">
+    <div class="col-lg-12 mx-auto">
       <h3 class="border-box py-4">機器新規登録</h3>
     </div>
   </div>
   <div class="row p-0">
-    <div class="col-lg-9 offset-3">
+    <div class="col-lg-8 offset-4">
       <%= form_with model: @equipment, url: user_register_equipments_path(@register_id), method: :post do |f| %>
       <%= render 'user/equipments/validation_error' %>
       <div class="row pb-3">
@@ -89,12 +89,12 @@
       </div>
       <%= f.hidden_field :register_id %>
       <div class="row pt-4">
-        <div class="row offset-2">
+        <div class="row offset-1">
           <div class="col"><%= link_to "一覧画面", user_register_equipments_path(register_id: @register_id), class: 'btn btn-primary' %></div>
           <div class="col"><%= f.submit "新規登録", class: 'btn btn-success' %></div>
+          <% end %>
         </div>
       </div>
-      <% end %>
     </div>
   </div>
 </div>

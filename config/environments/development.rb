@@ -75,4 +75,31 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+  
+  # config.action_mailer.asset_host = 'http://localhost:8080'
+ config.action_mailer.asset_host =  'https://eed521524ea64bce83e909f8dc061879.vfs.cloud9.ap-northeast-1.amazonaws.com/'
+  
+  config.action_mailer.default_url_options = { host: 'https://eed521524ea64bce83e909f8dc061879.vfs.cloud9.ap-northeast-1.amazonaws.com/' }
+  # mail setting
+  # メール送信時にエラーが発生した場合に、エラーを表示するように設定しています。
+  config.action_mailer.raise_delivery_errors = true
+  
+  config.action_mailer.perform_caching = false
+  
+  # メールの配信方法をSMTP経由で設定
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    # SMTPサーバーのアドレスを指定
+    :address => "smtp.gmail.com",
+    # SMTPサーバーのポート番号を指定しています。Gmailの場合、587ポート
+    :port => 587,
+    # 環境変数から取得
+    :user_name => ENV["GMAIL_ADDRESS"] ,
+    :password => ENV["GMAIL_PASSWORD"] ,
+    # 認証方法を指定しています。Gmailの場合、:plain を使用
+    :authentication => :plain,
+    # StartTLSを使用して暗号化するかどうかを指定
+    :enable_starttls_auto => true
+  }
+  
 end

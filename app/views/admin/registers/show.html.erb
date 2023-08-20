@@ -1,7 +1,7 @@
 <%= render 'layouts/flash_message' %>
 <div class="container-auto mx-5">
   <div class="row p-0">
-    <div class="col-lg-12">
+    <div class="col-lg-12 mx-auto">
       <h3 class="border-box py-4">台帳詳細</h3>
     </div>
   </div>
@@ -22,7 +22,7 @@
       <div class="row pb-2">
         <div class="col-lg-3">台帳説明</div>
         <div class="col-lg-6">
-          <%= @register.detail %>
+          <%= safe_join(@register.detail.split("\n"),tag(:br)) %>
         </div>
       </div>
       <div class="row pb-2">
@@ -38,11 +38,9 @@
     </div>
   </div>
   <div class="row pt-4">
-    <div class="mx-auto">
-      <div class="row">
-        <div class="col mr-5 pl-0"><%= link_to "一覧画面", admin_registers_path, class: 'btn btn-primary' %></div>
-        <div class="col">  <%= link_to "編集する", edit_admin_register_path(@register[:id]), class: 'btn btn-success' %></div>
-      </div>
+    <div class="row mx-auto">
+      <div class="col mr-5 pl-0"><%= link_to "一覧画面", admin_registers_path, class: 'btn btn-primary' %></div>
+      <div class="col">  <%= link_to "編集する", edit_admin_register_path(@register[:id]), class: 'btn btn-success' %></div>
     </div>
   </div>
 </div>

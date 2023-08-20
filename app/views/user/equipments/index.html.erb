@@ -46,7 +46,9 @@
           <%= submit_tag "検索", class: "btn btn-light mt-1" %>
         </div>
         <%= link_to '条件クリア', user_register_equipments_path, class: "btn btn-secondary mt-1" %>
-        <%= link_to "新規登録", new_user_register_equipment_path(@register), class: 'btn btn-success mt-1' %>
+        <% if !current_user.edit_permission %>
+          <%= link_to "新規登録", new_user_register_equipment_path(@register), class: 'btn btn-success mt-1' %>
+        <% end %>
       <% end %>
     </div>
   </div>

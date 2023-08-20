@@ -1,6 +1,7 @@
 
 
 @use '~bootstrap/scss/bootstrap';
+// @use '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 // flashメッセージ背景をピンクに設定
 .alert-message {
@@ -70,36 +71,3 @@
   padding: 5px;
 }
 
-// 検索画面アコーディオンメニュー
-// .acd-label-log{
-//     background: #007bff;
-//     color: #fff;
-//     display: block;
-//     margin-bottom: 0px;
-//     padding: 13px;
-//     position: relative;
-//     width: 200px;
-//     border-radius: 5px;
-// }
-// .acd-label-log:after{
-//     background: #007bff;
-//     box-sizing: border-box;
-//     content: '\f067';
-//     display: block;
-//     font-family: "Font Awesome 5 Free";
-//     height: 50px;
-//     padding: 10px 20px;
-//     position: absolute;
-//     right: 0;
-//     top: 0px;
-//     border-radius: 5px;
-// }
-// .acd-check:checked + .acd-label-log:after{
-//     content: '\30fc';
-// }
-// .acd-check:checked + .acd-label-log + .acd-content{
-//     height: 120px;
-//     opacity: 1;
-//     padding: 10px;
-//     visibility: visible;
-// }

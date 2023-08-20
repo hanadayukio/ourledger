@@ -46,13 +46,6 @@ include UsersHelper
       end_date = DateTime.parse(arr.join(":") + "+0900")
       @users = @users.where("created_at <= ?", end_date)
     end
-    # if params[:search_location]
-    #   @users = @users.search_location(params[:search_location])
-    # end
-    # if params[:search_date]
-    #   @users = @users.search_date(params[:search_date])
-    # end
-
     # ソート
     @users = @users.order("#{users_sort_column} #{users_sort_direction}").page(params[:page])
 

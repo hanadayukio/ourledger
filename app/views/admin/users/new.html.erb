@@ -10,7 +10,7 @@
       <%= form_with model: @user, url: admin_users_path, method: :post do |f| %>
       <%= render 'admin/users/validation_error' %>
       <div class="row pb-3">
-        <div class="col-lg-2">管理番号</div>
+        <div class="col-lg-2">社員番号</div>
         <div class="col-lg-6">
           <%= f.text_field :code %>
           <div>

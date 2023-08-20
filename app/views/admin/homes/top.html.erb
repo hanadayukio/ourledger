@@ -1,4 +1,29 @@
-<div class="container">
-  <%= render 'layouts/flash_message' %>
-  <h1>admintop</h1>
+<%= render 'layouts/flash_message' %>
+<div class="container-auto mx-5">
+  <div class="row p-0">
+    <div class="col-lg-12 mx-auto">
+      <h3 class="border-box py-4">管理者情報</h3>
+    </div>
+  </div>
+  <div class="row p-0">
+    <div class="col-lg-8 offset-4">
+      <div class="row pb-2">
+        <div class="col-lg-3">メールアドレス</div>
+        <div class="col-lg-6">
+          <%= @admin.email %>
+        </div>
+      </div>
+      <div class="row pb-2">
+        <div class="col-lg-3">パスワード</div>
+        <div class="col-lg-6">※※※※※※※※</div>
+      </div>
+    </div>
+  </div>
+  <div class="row pt-4">
+    <div class="row mx-auto">
+      <% if admin_signed_in? && @admin == current_admin %>
+      <div class="col"><%= link_to "パスワードの変更", edit_admin_registration_path, class: 'btn btn-primary' %></div>
+      <% end %>
+    </div>
+  </div>
 </div>

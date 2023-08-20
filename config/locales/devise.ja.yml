@@ -7,6 +7,7 @@ ja:
         user:
           attributes:
             email:
+              not_found: "が見つかりません"
               taken: "は既に使用されています。"
               blank: "が入力されていません。"
               too_short: "は%{count}文字以上に設定して下さい。"
@@ -23,7 +24,10 @@ ja:
               confirmation: "が一致しません"
           messages:
             confirmation: "が確認用パスワードと一致しません"
-              
+        admin:
+          attributes:
+            email:
+              not_found: "が見つかりません"
     attributes:
       user:
         current_password: "現在のパスワード"
@@ -55,6 +59,12 @@ ja:
         instruction: "アカウントのロックを解除するには下のリンクをクリックしてください。"
         message: "ログイン失敗が繰り返されたため、アカウントはロックされています。"
     passwords:
+      user:
+        send_instructions: "パスワードリセットの手順が記載されたメールを送信しました。ご確認ください。"
+        updated: "パスワードが更新されました"
+      admin:
+        send_instructions: "パスワードリセットの手順が記載されたメールを送信しました。ご確認ください。"
+        updated: "パスワードが更新されました"
       edit:
         change_my_password: "パスワードを変更する"
         change_your_password: "パスワードを変更"
@@ -103,6 +113,12 @@ ja:
         resend_unlock_instructions: "アカウントの凍結解除方法を再送する"
     failure:
       user:
+        invalid: '無効なメールアドレスもしくはパスワードです。'
+        not_found_in_database: "パスワードが正しくありません。"
+        unauthenticated: "ログインしてください。"
+        already_authenticated: "既にログインしています"
+      admin:
+        already_authenticated: "既にログインしています"
         invalid: '無効なメールアドレスもしくはパスワードです。'
         not_found_in_database: "パスワードが正しくありません。"
         unauthenticated: "ログインしてください。"

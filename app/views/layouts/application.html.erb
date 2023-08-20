@@ -2,19 +2,20 @@
 <html>
   <head>
     <title>Ourledger</title>
+    <link rel="icon" href="favicon.png">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
     <script src="https://kit.fontawesome.com/706fd79568.js" crossorigin="anonymous"></script>
-
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body class="d-flex flex-column vh-100">
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
         <nav class="container">
-          <a class="navbar-brand p-3" href="/">Our ledger</a>
-          <button class="navbar-toggler" type="button" date-toggle="collapse" date-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <a class="navbar-brand" href="/"><%= image_tag('ourledger.png', width: 120, height: 50) %></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -44,7 +45,7 @@
             </li>
             <% else %>
             <li class="nav-item pr-4">
-              <button type="button" class="btn btn-light btn-sm">about</button>
+              <button type="button" class="btn btn-light btn-sm"><%= link_to"about", about_page_path, class: 'nav-link text-dark'  %></button>
             </li>
             <li class="nav-item pr-4">
               <button type="button" class="btn btn-light btn-sm"><%= link_to"ユーザーログイン", new_user_session_path, class: 'nav-link text-dark'  %></button>
@@ -58,8 +59,6 @@
         </nav>
       </nav>
     </header>
-
-  <body class="d-flex flex-column vh-100">
     <%= yield %>
   </body>
 </html>
