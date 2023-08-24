@@ -66,8 +66,6 @@ gem 'roo'
 
 # daviseパスワード再設定確認
 gem 'dotenv-rails'
-
-gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end

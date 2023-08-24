@@ -8,6 +8,7 @@ default: &default
   adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
+  host: rds-mysql-server.cfe2fpyrsvpq.ap-northeast-1.rds.amazonaws.com
 
 development:
   <<: *default
