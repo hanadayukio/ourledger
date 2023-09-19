@@ -34,6 +34,7 @@ URL：https://docs.google.com/spreadsheets/d/1Go1ub7Y-34SoLr7OyKVTsvy9MqDYw0QCZS
 - IDE：Cloud9
 
 
+
 ## gemの使用
 - devise
 - kaminari
