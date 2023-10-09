@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 2023_06_13_124239) do
 
   create_table "equipment", force: :cascade do |t|
     t.integer "register_id", null: false
-    t.integer "reference_number", null: false
+    t.string "reference_number", null: false
     t.string "introduction", null: false
     t.string "location", null: false
     t.string "name", null: false
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 2023_06_13_124239) do
   end
 
   create_table "registers", force: :cascade do |t|
-    t.integer "reference_number", null: false
+    t.string "reference_number", null: false
     t.string "name", null: false
     t.text "detail", null: false
     t.boolean "is_deleted", default: false, null: false

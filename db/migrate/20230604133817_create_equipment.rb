@@ -3,7 +3,7 @@ class CreateEquipment < ActiveRecord::Migration[6.1]
     create_table :equipment do |t|
       
       t.bigint :register_id,       null: false
-      t.integer  :reference_number, null: false
+      t.string  :reference_number, null: false
       t.string  :introduction,      null: false
       t.string  :location,          null: false
       t.string  :name,              null: false
