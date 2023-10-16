@@ -4,8 +4,8 @@
 
 .background{
   background-image: image-url("tana.jpg");
-  height: 1180px;
+  height: 420px;
   background-size: cover;
-  background-color:pink;
-  color: red;
+  opacity: 0.5;
+  z-index: -1
 }
