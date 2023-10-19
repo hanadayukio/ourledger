@@ -6,6 +6,19 @@
   background-image: image-url("tana.jpg");
   height: 420px;
   background-size: cover;
-  opacity: 0.5;
-  z-index: -1
+
+}
+
+.main-visuarl-content{
+  height: 420px;
+  width: 40%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.main-text{
+  color: white;
+  font-size: 32px;
+  padding-top: 74px;
+  text-align: center;
+  font-family: 'Caveat', cursive;
 }
