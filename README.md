@@ -41,4 +41,3 @@ URL：https://docs.google.com/spreadsheets/d/1Go1ub7Y-34SoLr7OyKVTsvy9MqDYw0QCZS
 - image_processing
 - roo
 - dotenv-rails
-- 
