@@ -1,12 +1,104 @@
 <%= render 'layouts/header' %>
 <div class="background">
-  <div class="main-visuarl-content">
+  <div class="visuarl-content">
     <div class="container">
-      <p class="main-text">Tailoring the ledger to </br>
+      <p class="top-text">Tailoring the ledger to </br>
       your desired format </br>and </br>our unique specifications</p>
     </div>
   </div>
 </div>
+<script>
+// slick設定
+$(document).on('turbolinks:load', function() {
+ 
+  $('#slider1').not('.slick-initialized').slick({
+    dots: true, // スライドの下にドットのナビゲーションを表示
+    autoplay: true, // 自動再生
+    autoplaySpeed: 4000, // 再生スピード
+    // variableWidth: true,
+    slidesToShow: 1, // 一度に表示するスライド数
+    slidesToScroll: 1, // 一回で動くスライド数
+    infinite: true
+  });
+    $('#slider2').not('.slick-initialized').slick({
+    dots: true, // スライドの下にドットのナビゲーションを表示
+    autoplay: true, // 自動再生
+    autoplaySpeed: 4000, // 再生スピード
+    // variableWidth: true,
+    slidesToShow: 1, // 一度に表示するスライド数
+    slidesToScroll: 1, // 一回で動くスライド数
+    infinite: true
+  });
+    $('#slider3').not('.slick-initialized').slick({
+    dots: true, // スライドの下にドットのナビゲーションを表示
+    autoplay: true, // 自動再生
+    autoplaySpeed: 4000, // 再生スピード
+    // variableWidth: true,
+    slidesToShow: 1, // 一度に表示するスライド数
+    slidesToScroll: 1, // 一回で動くスライド数
+    infinite: true
+  });
+      // スライダー2の開始を遅らせる
+    $('#slider2').slick('slickPause'); // 最初は自動再生を停止する
+
+    setTimeout(function() {
+        $('#slider2').slick('slickPlay'); // 遅れて自動再生を再開する
+    }, 2000); // 2秒後にスライドを再生開始
+});
+</script>
 <div class="container">
-  コンテナ
+  <div class="row mt-5 mb-4">
+    <div class="col d-flex justify-content-center">
+      <div class="custom-border pr-5 pl-5 pt-2 pb-2">
+        <h1 class="custom-text">oulredger とは</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col d-flex justify-content-center">
+      <h4 class="mt-3 mb-3">台帳を作成しあなたが欲しい・必要とする台帳を提供します。</h4>
+    </div>
+  </div>
+  <div class="row mt-4 mb-5 ">
+    <div class="col d-flex justify-content-center ">
+      <h4 class="custom-border mt-3 mb-3 pt-2 pb-2 pr-3 pl-3">台 帳 の 種 類 一 覧</h4>
+    </div>
+  </div>
+  <div class="row mt-5 mb-5">
+    <div class="col-4">
+      <h5 class="main-title ">ユーザー管理</h5>
+      <p class="m-2">社員番号、名前、メールアドレス</br>社員・退社、編集権限の管理</p>
+    </div>
+    <div class="col-8 slider-size">
+      <div id="slider1">
+        <div><%= image_tag('user_1-1.png', size: '650x270' ) %></div>
+        <div><%= image_tag('user_1-2.png', size: '650x270' ) %></div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5 mb-5">
+    <div class="col-8 slider-size">
+      <div id="slider2">
+        <div><%= image_tag('register_1-1.png', size: '650x270' ) %></div>
+        <div><%= image_tag('register_1-2.png', size: '650x270' ) %></div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <h5 class="main-title ">台帳管理</h5>
+      <p class="m-2">台帳の管理番号、名称、説明</br>登録・削除の管理</p>
+    </div>
+  </div>
+  <div class="row mt-5 mb-5">
+    <div class="col-lg-4">
+      <h5 class="main-title ">機器管理</h5>
+      <p class="m-2">機器の管理番号、名称、情報</br>登録・削除の管理</p>
+    </div>
+    <div class="col-8 slider-size">
+      <div id="slider3">
+        <div><%= image_tag('equipment_1-1.png', size: '650x270' ) %></div>
+        <div><%= image_tag('equipment_1-2.png', size: '650x270' ) %></div>
+      </div>
+    </div>
+  </div>
 </div>
+<%= render 'layouts/footer' %>

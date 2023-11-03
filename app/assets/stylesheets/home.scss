@@ -6,19 +6,58 @@
   background-image: image-url("tana.jpg");
   height: 420px;
   background-size: cover;
-
 }
 
-.main-visuarl-content{
+.visuarl-content{
   height: 420px;
   width: 40%;
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.main-text{
+.top-text{
   color: white;
   font-size: 32px;
   padding-top: 74px;
   text-align: center;
   font-family: 'Caveat', cursive;
+}
+.custom-border{
+  border-top: 5px groove;
+  border-bottom: 5px ridge;
+  border-color: orange;
+}
+.custom-text{
+  font-weight: bold;
+}
+
+.main-title{
+  font-weight: bold;
+  color: #ff8856;
+}
+
+// slider用
+.slick-slide{
+  display: none;
+  float: left;
+  height: 100%;
+  width: 100%;
+  min-height: 1px;
+}
+.slick-next {
+  right: 15px !important;
+  z-index: 100;
+}
+.slick-prev {
+  left: -20px !important;
+  z-index: 100;
+}
+.slider-size{
+  width: 100%;
+  height: 300px;
+}
+
+.slick-prev:before,
+.slick-next:before
+{
+  color: orange !important;
 }

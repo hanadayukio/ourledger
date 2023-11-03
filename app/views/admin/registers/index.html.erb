@@ -39,7 +39,7 @@
             <%= link_to register.reference_number, admin_register_path(register) %>
             </p></td>
           <td><p class="d-inline-block text-truncate" style="max-width: 150px;"><%= register.name %></p></td>
-          <td><p class="d-inline-block text-truncate" style="max-width: 150px;"><%= register.detail  %></P></td>
+          <td><p class="d-inline-block text-truncate" style="max-width: 200px;"><%= register.detail  %></p></td>
           <td>
             <% if register.is_deleted %>
               <p class="text-secondary" style="width: 90px;">削除中</p>
