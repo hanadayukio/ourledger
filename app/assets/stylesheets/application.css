@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+/*footer用*/
+.footer-custom{
+  background-color: #ff9933;
+}
