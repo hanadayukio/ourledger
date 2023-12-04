@@ -39,11 +39,17 @@ include UsersHelper
       start_date = DateTime.parse(params[:start_date]+"+0900")
       @users = @users.where("created_at >= ?", start_date)
     end
+    # 空ではないか
     if params[:end_date] != "" &&  !params[:end_date].nil?
+    # end_dateに＋900して日本時間へ
       end_date = DateTime.parse(params[:end_date]+"+0900")
+      # 時刻を表すため":"で区切る"
       arr = params[:end_date].split(":")
+      # 分の部分に1を加え検索にかかるようにする
       arr[1] = arr[1].to_i + 1
+      # 修正した時刻をend_dateへ
       end_date = DateTime.parse(arr.join(":") + "+0900")
+      # 検索日時でフィルタリング
       @users = @users.where("created_at <= ?", end_date)
     end
     # ソート

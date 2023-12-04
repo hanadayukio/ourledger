@@ -26,7 +26,7 @@ class User < ApplicationRecord
   # scope :search_date, ->(query) { where("date LIKE ?", "%#{query}%") }
 
   
-  
+  # 現在のパスワードを入力せずにユーザーの情報を更新するメソッド
   def update_without_current_password(params, *options)
     params.delete(:current_password)
     if params[:password].blank? && params[:password_confirmation].blank? 
